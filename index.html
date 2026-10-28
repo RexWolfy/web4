@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web4 is here</title>
+  <meta name="description" content="Web4 is here. Sign up for updates.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Web4 is here">
+  <meta property="og:description" content="The next version of the web has arrived. Sign up for updates.">
+  <meta property="og:url" content="https://web4.rderg.com/">
+  <meta property="og:image" content="https://web4.rderg.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Web4 — web, supercharged">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="hero" id="top">
+      <h1 class="hero__title">Web<span class="accent">4</span><span class="hero__sub">web, supercharged</span></h1>
+
+      <div class="hero__foot">
+        <p class="hero__lede">know web3? forget it, web4 is here (soon)</p>
+      </div>
+    </section>
+
+    <section class="features" id="features" aria-labelledby="features-title">
+      <h2 class="section__title reveal" id="features-title">Features</h2>
+
+      <article class="item reveal">
+        <p class="item__num">01</p>
+        <div>
+          <h3 class="item__title">Hyper<span class="accent">crypto</span></h3>
+          <p class="item__copy">
+            The long-anticipated next step after crypto, built into Web4 from day one.
+          </p>
+        </div>
+      </article>
+
+      <article class="item reveal">
+        <p class="item__num">02</p>
+        <div>
+          <h3 class="item__title">Single Node <span class="accent">Blockchain</span></h3>
+          <p class="item__copy">Think of a number and have it.</p>
+        </div>
+      </article>
+
+      <article class="item reveal">
+        <p class="item__num">03</p>
+        <div>
+          <h3 class="item__title">Super turbo mega ultra <span class="accent">NFTs</span></h3>
+          <p class="item__copy">Level: the next.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="signup" id="updates" aria-labelledby="signup-title">
+      <h2 class="section__title reveal" id="signup-title">Sign up for<br>updates</h2>
+
+      <div class="signup__body reveal">
+        <!-- Client-side only: the input has no name attribute and submit is
+             intercepted in script.js, so the email never leaves the browser. -->
+        <form class="signup__form" id="signup-form" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <div class="field">
+            <span class="field__prompt" aria-hidden="true">&gt;</span>
+            <input id="email" type="email" autocomplete="email" placeholder="you@domain.com"
+                   spellcheck="false" autocapitalize="off" aria-describedby="email-msg" required>
+            <button class="btn" type="submit">Sign up <span class="btn__arrow" aria-hidden="true">→</span></button>
+          </div>
+          <p class="field__msg" id="email-msg" aria-live="polite"></p>
+        </form>
+
+        <div class="done" id="signup-done" tabindex="-1" hidden>
+          <p class="done__line"><span class="done__ok">OK</span><span class="done__email" id="signup-done-email"></span></p>
+          <p class="done__title">You’re on the list.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> Web4</span>
+    <nav class="footer__nav" aria-label="Pages">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="testimonials.html">Testimonials</a>
+    </nav>
+    <p class="prompt">
+      <span class="prompt__sign" aria-hidden="true">$</span> web4 --status
+      <span class="prompt__out">→ soon</span><span class="cursor" aria-hidden="true"></span>
+    </p>
+  </footer>
+</body>
+</html>
