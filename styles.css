@@ -1,3 +1,7 @@
+/* Pages load this file as styles.css?v=N. Browsers keep CSS and JS for 4 hours
+   (Cloudflare's setting), so after changing this file, script.js, build.css or
+   build.js, raise N on every page or visitors keep seeing the old version. */
+
 /* ---------- Fonts ---------- */
 
 /* Anton stands in for Impact on devices that don't ship it (iOS, Android, Linux).
@@ -527,10 +531,16 @@ tbody tr:hover td { background: rgba(255, 255, 255, 0.02); }
   color: var(--muted);
 }
 
+/* Flex keeps wrapped lines indented under the text instead of under the "+" */
+.plan__list li {
+  display: flex;
+  gap: 1ch;
+}
+
 .plan__list li + li { margin-top: 8px; }
 
 .plan__list li::before {
-  content: "+ ";
+  content: "+";
   color: var(--red);
 }
 
@@ -724,6 +734,46 @@ tbody tr:hover td { background: rgba(255, 255, 255, 0.02); }
 
 @media (max-width: 640px) {
   .form { grid-template-columns: minmax(0, 1fr); }
+
+  /* Comparison tables stack: one block per row, one line per column.
+     Value cells name their column in data-label. */
+  .table-wrap--stack thead { display: none; }
+
+  .table-wrap--stack table,
+  .table-wrap--stack tbody,
+  .table-wrap--stack tr,
+  .table-wrap--stack td { display: block; }
+
+  .table-wrap--stack tr {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .table-wrap--stack tbody tr:last-child { border-bottom: 0; }
+
+  .table-wrap--stack td {
+    padding: 0;
+    border: 0;
+  }
+
+  .table-wrap--stack td:first-child { margin-bottom: 8px; }
+
+  .table-wrap--stack td[data-label] {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: right;
+  }
+
+  .table-wrap--stack td[data-label] + td { margin-top: 4px; }
+
+  .table-wrap--stack td[data-label]::before {
+    content: attr(data-label);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+  }
 }
 
 @media (max-width: 480px) {

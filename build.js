@@ -1,5 +1,6 @@
 // Web4 developer docs: terminal, code tabs, copy buttons, contents highlighting.
 // Like script.js, everything here runs in the browser. Nothing is sent or stored.
+// Loaded as build.js?v=N: after changing it, raise N on every page (see styles.css).
 
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -1,4 +1,5 @@
-/* Developer docs (build.html). Loaded after styles.css and reuses its tokens. */
+/* Developer docs (build.html). Loaded after styles.css and reuses its tokens.
+   Loaded as build.css?v=N: after changing it, raise N on every page (see styles.css). */
 
 :root {
   --topbar-h: 56px;

@@ -1,4 +1,5 @@
 // Web4 — everything here runs in the browser. Nothing is sent or stored.
+// Loaded as script.js?v=N: after changing it, raise N on every page (see styles.css).
 
 (() => {
   document.getElementById('year').textContent = new Date().getFullYear();

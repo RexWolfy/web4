@@ -18,8 +18,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="icon-512.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script src="script.js?v=2" defer></script>
 </head>
 <body>
   <main class="page">
@@ -70,17 +70,17 @@
     </div>
 
     <h2 class="page__heading reveal">Compare<br>plans</h2>
-    <div class="table-wrap reveal">
+    <div class="table-wrap table-wrap--stack reveal">
       <table>
         <thead><tr><th scope="col"></th><th scope="col">Free</th><th scope="col">Pro</th><th scope="col">Enterprise</th></tr></thead>
         <tbody>
-          <tr><td>Nodes</td><td>1</td><td>1</td><td>1</td></tr>
-          <tr><td>Consensus</td><td>1/1</td><td>1/1</td><td>1/1</td></tr>
-          <tr><td>Finality</td><td>Instant</td><td>Faster than instant</td><td>Whatever the contract says</td></tr>
-          <tr><td>HYPER</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited, in writing</td></tr>
-          <tr><td>STMU NFTs</td><td>Hot</td><td>Hotter</td><td>Fireproof (soon)</td></tr>
-          <tr><td>Uptime</td><td>100%</td><td>100%</td><td>100%, guaranteed</td></tr>
-          <tr><td>Support</td><td>Soon</td><td>Soon, but sooner</td><td>Contact us</td></tr>
+          <tr><td>Nodes</td><td data-label="Free">1</td><td data-label="Pro">1</td><td data-label="Enterprise">1</td></tr>
+          <tr><td>Consensus</td><td data-label="Free">1/1</td><td data-label="Pro">1/1</td><td data-label="Enterprise">1/1</td></tr>
+          <tr><td>Finality</td><td data-label="Free">Instant</td><td data-label="Pro">Faster than instant</td><td data-label="Enterprise">Whatever the contract says</td></tr>
+          <tr><td>HYPER</td><td data-label="Free">Unlimited</td><td data-label="Pro">Unlimited</td><td data-label="Enterprise">Unlimited, in writing</td></tr>
+          <tr><td>STMU NFTs</td><td data-label="Free">Hot</td><td data-label="Pro">Hotter</td><td data-label="Enterprise">Fireproof (soon)</td></tr>
+          <tr><td>Uptime</td><td data-label="Free">100%</td><td data-label="Pro">100%</td><td data-label="Enterprise">100%, guaranteed</td></tr>
+          <tr><td>Support</td><td data-label="Free">Soon</td><td data-label="Pro">Soon, but sooner</td><td data-label="Enterprise">Contact us</td></tr>
         </tbody>
       </table>
     </div>
