@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web4 Testnet Explorer</title>
+  <meta name="description" content="Explore blocks, transactions and addresses on the Web4 testnet.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Web4 Testnet Explorer">
+  <meta property="og:description" content="Blocks, transactions and addresses on the Web4 testnet, live.">
+  <meta property="og:url" content="https://web4.rderg.com/testnet.html">
+  <meta property="og:image" content="https://web4.rderg.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Web4 — web, supercharged">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icon-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="testnet.css?v=1">
+  <script src="testnet.js?v=1" defer></script>
+</head>
+<body class="is-home">
+  <header class="header">
+    <div class="strip">
+      <div class="wrap strip__inner">
+        <span class="strip__net"><span class="strip__dot" aria-hidden="true"></span>Web4 Testnet</span>
+        <span class="strip__item strip__item--wide">Chain ID 4444</span>
+        <span class="strip__item">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M4 10h10M14 8h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/></svg>
+          Gas: <b id="gas">—</b>
+        </span>
+        <button class="live" id="live" type="button" aria-pressed="true" title="Pause live updates">
+          <span class="live__dot" aria-hidden="true"></span><span id="live-label">Live</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="header__main">
+      <div class="wrap bar">
+        <a class="brand" href="#/" aria-label="Web4 Explorer home">
+          <img src="favicon.svg" alt="" width="32" height="32">
+          <span class="brand__name">Web<span class="brand__4">4</span> <span class="brand__sub">Explorer</span></span>
+        </a>
+
+        <form class="search search--bar" role="search" data-search>
+          <label class="sr-only" for="search-bar">Search</label>
+          <input id="search-bar" name="q" type="search" placeholder="Search by Address / Txn Hash / Block"
+                 autocomplete="off" spellcheck="false" autocapitalize="off">
+          <button type="submit" aria-label="Search">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          </button>
+        </form>
+
+        <nav class="nav" aria-label="Explorer">
+          <a href="#/" data-nav="home">Home</a>
+          <a href="#/txs" data-nav="txs">Transactions</a>
+          <a href="#/blocks" data-nav="blocks">Blocks</a>
+          <a href="build.html">Developers</a>
+        </nav>
+
+        <details class="net">
+          <summary aria-label="Choose network">
+            <span class="strip__dot" aria-hidden="true"></span>Testnet
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <ul class="net__menu">
+            <li><span class="net__opt is-on">Web4 Testnet <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span></li>
+            <li><span class="net__opt is-off" aria-disabled="true">Web4 Mainnet <span class="net__soon">Soon</span></span></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main class="app" id="app">
+    <noscript>
+      <div class="wrap"><p class="card empty">The Web4 Explorer needs JavaScript to load the testnet.</p></div>
+    </noscript>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__top">
+      <div class="footer__about">
+        <a class="brand" href="#/">
+          <img src="favicon.svg" alt="" width="28" height="28">
+          <span class="brand__name">Web<span class="brand__4">4</span> <span class="brand__sub">Explorer</span></span>
+        </a>
+        <p>Web4 Explorer is a block explorer for the Web4 testnet, the single node blockchain behind Web4.</p>
+      </div>
+      <nav class="footer__cols" aria-label="Web4">
+        <div>
+          <h2>Web4</h2>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Developers</h2>
+          <ul>
+            <li><a href="build.html">Build on Web4</a></li>
+            <li><a href="build.html#api">API reference</a></li>
+            <li><a href="build.html#changelog">Changelog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <span>© <span id="year">2026</span> Web4 · Testnet HYPER has no value</span>
+      <button class="footer__top-link" id="to-top" type="button">Back to top ↑</button>
+    </div>
+  </footer>
+</body>
+</html>
