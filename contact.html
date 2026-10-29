@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get in touch — Web4</title>
+  <meta name="description" content="Get in touch with Web4 about Enterprise plans, careers or anything else.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Get in touch with Web4">
+  <meta property="og:description" content="Enterprise plans, careers or anything else. We’ll get back to you soon.">
+  <meta property="og:url" content="https://web4.rderg.com/contact.html">
+  <meta property="og:image" content="https://web4.rderg.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Web4 — web, supercharged">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icon-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="./">← Web4</a>
+
+    <h1 class="section__title reveal">Get in<br>touch</h1>
+    <p class="page__lede reveal">Enterprise plans, careers, or just to say web4. We’ll get back to you soon.</p>
+
+    <div class="contact reveal">
+      <!-- Client-side only, like the sign-up form: no field has a name attribute and
+           submit is intercepted in script.js, so nothing typed here leaves the browser. -->
+      <form class="form" id="contact-form" novalidate>
+        <div class="form__row">
+          <label class="form__label" for="contact-name">Name</label>
+          <input id="contact-name" type="text" autocomplete="name" aria-describedby="contact-name-msg" required>
+          <p class="field__msg" id="contact-name-msg" aria-live="polite"></p>
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="contact-email">Email</label>
+          <input id="contact-email" type="email" autocomplete="email" placeholder="you@domain.com"
+                 spellcheck="false" autocapitalize="off" aria-describedby="contact-email-msg" required>
+          <p class="field__msg" id="contact-email-msg" aria-live="polite"></p>
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="contact-company">Company (optional)</label>
+          <input id="contact-company" type="text" autocomplete="organization">
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="contact-topic">Topic</label>
+          <select id="contact-topic">
+            <option value="enterprise">Enterprise plan</option>
+            <option value="careers">Careers</option>
+            <option value="press">Press</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="contact-nodes">Nodes needed</label>
+          <select id="contact-nodes">
+            <option>1</option>
+          </select>
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="contact-budget">Budget (optional)</label>
+          <input id="contact-budget" type="text" inputmode="numeric" placeholder="Think of a number">
+        </div>
+
+        <div class="form__row form__row--full">
+          <label class="form__label" for="contact-message">Message</label>
+          <textarea id="contact-message" rows="6" placeholder="Tell us about your node."
+                    aria-describedby="contact-message-msg" required></textarea>
+          <p class="field__msg" id="contact-message-msg" aria-live="polite"></p>
+        </div>
+
+        <button class="btn" type="submit">Send <span class="btn__arrow" aria-hidden="true">→</span></button>
+        <p class="form__note">Nothing is sent. This form runs in your browser, like everything else here.</p>
+      </form>
+
+      <div class="done" id="contact-done" tabindex="-1" hidden>
+        <p class="done__line"><span class="done__ok">OK</span><span class="done__email" id="contact-done-email"></span></p>
+        <p class="done__title">We’ll get back to you soon.</p>
+        <p class="done__note">Nothing left your browser. There’s nowhere to put it.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> Web4</span>
+    <nav class="footer__nav" aria-label="Pages">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="build.html">Build on Web4</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+    <p class="prompt">
+      <span class="prompt__sign" aria-hidden="true">$</span> web4 --contact
+      <span class="prompt__out">→ soon</span><span class="cursor" aria-hidden="true"></span>
+    </p>
+  </footer>
+</body>
+</html>

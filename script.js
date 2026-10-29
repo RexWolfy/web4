@@ -18,6 +18,71 @@
     reveals.forEach((el) => observer.observe(el));
   }
 
+  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  // Ledger (privacy page): every entry is editable, and the one node confirms whatever you write
+  const ledger = document.getElementById('ledger');
+  if (ledger) {
+    const ledgerMsg = document.getElementById('ledger-msg');
+    ledger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') event.target.blur();
+    });
+    ledger.addEventListener('change', (event) => {
+      const entry = event.target.getAttribute('aria-label');
+      ledgerMsg.textContent = event.target.value.trim()
+        ? `${entry} rewritten. Confirmed by 1/1 nodes`
+        : `${entry} deleted. It never happened`;
+    });
+  }
+
+  // Contact form (contact page): validate locally, show a confirmation, keep nothing.
+  // Links can preselect the topic, e.g. contact.html?topic=careers
+  const contact = document.getElementById('contact-form');
+  if (contact) {
+    const topic = document.getElementById('contact-topic');
+    const preset = new URLSearchParams(window.location.search).get('topic');
+    if ([...topic.options].some((option) => option.value === preset)) topic.value = preset;
+
+    // Required fields, each with a check that returns an error message ('' when fine)
+    const fields = [
+      ['contact-name', (value) => (value ? '' : 'ERR: name required')],
+      ['contact-email', (value) => {
+        if (!value) return 'ERR: email address required';
+        return EMAIL.test(value) ? '' : 'ERR: that doesn’t look like an email address';
+      }],
+      ['contact-message', (value) => (value ? '' : 'ERR: message required')],
+    ].map(([id, check]) => ({
+      input: document.getElementById(id),
+      msg: document.getElementById(`${id}-msg`),
+      check,
+    }));
+
+    const validate = ({ input, msg, check }) => {
+      const error = check(input.value.trim());
+      msg.textContent = error;
+      input.closest('.form__row').classList.toggle('is-invalid', Boolean(error));
+      if (error) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+      return !error;
+    };
+
+    contact.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const invalid = fields.filter((field) => !validate(field));
+      if (invalid.length) return invalid[0].input.focus();
+
+      const done = document.getElementById('contact-done');
+      document.getElementById('contact-done-email').textContent = fields[1].input.value.trim();
+      contact.hidden = true;
+      done.hidden = false;
+      done.focus();
+    });
+
+    fields.forEach((field) => field.input.addEventListener('input', () => {
+      if (field.input.hasAttribute('aria-invalid')) validate(field);
+    }));
+  }
+
   // Sign-up form (home page only): validate locally, show a confirmation, keep nothing
   const form = document.getElementById('signup-form');
   if (!form) return;
@@ -26,7 +91,6 @@
   const msg = document.getElementById('email-msg');
   const done = document.getElementById('signup-done');
   const doneEmail = document.getElementById('signup-done-email');
-  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   const showError = (text) => {
     msg.textContent = text;
