@@ -144,6 +144,11 @@ a { color: inherit; }
 }
 
 .hero__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
   margin-top: clamp(28px, 5vh, 56px);
   padding-top: 20px;
   border-top: 1px solid var(--line);
@@ -202,6 +207,8 @@ a { color: inherit; }
   margin: 12px 0 0;
   color: var(--red);
 }
+
+.item .btn { margin-top: 24px; }
 
 /* ---------- Sign up ---------- */
 
@@ -277,6 +284,13 @@ a { color: inherit; }
 
 .btn__arrow { transition: transform 0.15s; }
 .btn:hover .btn__arrow { transform: translateX(3px); }
+
+/* Link buttons stand alone, unlike the signup button that fills the field's height */
+a.btn {
+  display: inline-flex;
+  padding: 14px 22px;
+  text-decoration: none;
+}
 
 .field__msg {
   min-height: 1.65em;
