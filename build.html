@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build on Web4</title>
+  <meta name="description" content="Docs for the Web4 CLIT, SDK and REST API. Ship to a single node in no time (soon).">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Build on Web4">
+  <meta property="og:description" content="Docs for the Web4 CLIT, SDK and REST API.">
+  <meta property="og:url" content="https://web4.rderg.com/build.html">
+  <meta property="og:image" content="https://web4.rderg.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Web4 — web, supercharged">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icon-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="build.css">
+  <script src="script.js" defer></script>
+  <script src="build.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar__brand" href="./">Web<span class="accent">4</span></a>
+    <span class="topbar__sep" aria-hidden="true">/</span>
+    <a class="topbar__section" href="#top">Developers</a>
+    <span class="tag">v4.0.0</span>
+    <nav class="topbar__links" aria-label="Docs">
+      <a href="#quickstart">Quickstart</a>
+      <a href="#api">API</a>
+      <a href="#changelog">Changelog</a>
+    </nav>
+    <p class="status"><span class="status__dot" aria-hidden="true"></span>Mainnet: soon</p>
+  </header>
+
+  <main>
+    <section class="dev-hero" id="top">
+      <div class="dev-hero__copy">
+        <p class="eyebrow">// build on web4</p>
+        <h1 class="dev-hero__title">Build on<br>Web<span class="accent">4</span></h1>
+        <p class="dev-hero__lede">
+          The CLIT, SDK and REST API for the next version of the web.
+          Everything deploys to one node, and it always agrees with you.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#quickstart">Quickstart <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#api">API reference</a>
+        </div>
+        <ul class="facts">
+          <li>v4.0.0</li>
+          <li>1 node</li>
+          <li>0 dependencies</li>
+          <li>100% uptime</li>
+        </ul>
+      </div>
+
+      <div class="term" id="term">
+        <div class="term__bar">
+          <span class="term__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span id="term-title">~/my-dapp — web4</span>
+        </div>
+        <div class="term__body" id="term-body">
+          <div class="term__out" id="term-out" role="log" aria-label="Terminal output">
+            <noscript>
+              <p><span class="t-ps">$</span> web4 init my-dapp</p>
+              <p><span class="t-ok">✓</span> created my-dapp/</p>
+              <p><span class="t-ok">✓</span> installed hypercrypto (0 dependencies)</p>
+              <p><span class="t-ok">✓</span> single node blockchain ready</p>
+              <p class="t-dim">next: web4 node start</p>
+            </noscript>
+          </div>
+          <form class="term__line" id="term-form" hidden>
+            <span class="t-ps" aria-hidden="true">$</span>
+            <label class="sr-only" for="term-input">Terminal command</label>
+            <input id="term-input" type="text" maxlength="120" autocomplete="off"
+                   autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send">
+          </form>
+        </div>
+        <div class="term__try" id="term-try" hidden>
+          <span>Try</span>
+          <button type="button" data-cmd="help">help</button>
+          <button type="button" data-cmd="web4 think 1000000">think</button>
+          <button type="button" data-cmd="web4 mint">mint</button>
+          <button type="button" data-cmd="web4 deploy">deploy</button>
+          <button type="button" data-cmd="web4 upgrade">upgrade</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="docs">
+      <nav class="toc" aria-label="Contents">
+        <p class="toc__group">Getting started</p>
+        <ul>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#quickstart">Quickstart</a></li>
+        </ul>
+        <p class="toc__group">Concepts</p>
+        <ul>
+          <li><a href="#single-node">Single Node Blockchain</a></li>
+          <li><a href="#hypercrypto">Hypercrypto</a></li>
+          <li><a href="#nfts">STMU NFTs</a></li>
+        </ul>
+        <p class="toc__group">Reference</p>
+        <ul>
+          <li><a href="#sdk">SDK</a></li>
+          <li><a href="#api">REST API</a></li>
+          <li><a href="#errors">Errors</a></li>
+          <li><a href="#limits">Rate limits</a></li>
+          <li><a href="#changelog">Changelog</a></li>
+        </ul>
+      </nav>
+
+      <article class="doc">
+        <!-- ===== Getting started ===== -->
+
+        <section id="intro" aria-labelledby="intro-title">
+          <p class="doc__group">01 / Getting started</p>
+          <h2 id="intro-title">Introduction <a class="anchor" href="#intro" aria-label="Link to this section">#</a></h2>
+          <p>
+            Web4 is the next version of the web. These docs cover everything you need to build on it:
+            the command line, the SDK and the REST API.
+          </p>
+          <p>If you’ve built on web3 before, good news: none of it applies here.</p>
+
+          <div class="cards">
+            <a class="card" href="#quickstart">
+              <p class="card__label">$ clit</p>
+              <p class="card__title">Web4 CLIT</p>
+              <p class="card__copy">Create, run and deploy from your terminal.</p>
+            </a>
+            <a class="card" href="#sdk">
+              <p class="card__label">{ } sdk</p>
+              <p class="card__title">SDKs</p>
+              <p class="card__copy">JavaScript, Python and Rust (soon).</p>
+            </a>
+            <a class="card" href="#api">
+              <p class="card__label">/v4 api</p>
+              <p class="card__title">REST API</p>
+              <p class="card__copy">Who is JSON?</p>
+            </a>
+          </div>
+
+          <aside class="note">
+            <p class="note__label">Note</p>
+            <p>Web4 goes public soon. But don’t get too excited about Web5!</p>
+          </aside>
+        </section>
+
+        <section id="install" aria-labelledby="install-title">
+          <h2 id="install-title">Install <a class="anchor" href="#install" aria-label="Link to this section">#</a></h2>
+          <p>The Web4 CLIT comes preinstalled on every computer. It just isn’t turned on yet. To check your version:</p>
+
+          <div class="code" data-lang="shell">
+            <div class="code__head"><span>Terminal</span></div>
+            <pre><code><span class="p">$ </span>web4 --version</code></pre>
+          </div>
+
+          <p>If you see <code>command not found</code>, that’s the soon part.</p>
+
+          <h3>Requirements</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Requirement</th><th scope="col">Minimum</th><th scope="col">Recommended</th></tr></thead>
+              <tbody>
+                <tr><td>OS</td><td>Any</td><td>Any, but faster</td></tr>
+                <tr><td>Nodes</td><td>1</td><td>1</td></tr>
+                <tr><td>Disk</td><td>4 KB</td><td>4 Whatever</td></tr>
+                <tr><td>Belief</td><td>Optional</td><td>Strongly</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="quickstart" aria-labelledby="quickstart-title">
+          <h2 id="quickstart-title">Quickstart <a class="anchor" href="#quickstart" aria-label="Link to this section">#</a></h2>
+          <p>From zero to mainnet in four steps.</p>
+
+          <ol class="steps">
+            <li>
+              <h3>Create a project</h3>
+              <div class="code" data-lang="shell">
+                <div class="code__head"><span>Terminal</span></div>
+                <pre><code><span class="p">$ </span>web4 init my-dapp
+<span class="p">$ </span>cd my-dapp</code></pre>
+              </div>
+            </li>
+            <li>
+              <h3>Start your node</h3>
+              <p>Your node is the whole network. Be nice to it.</p>
+              <div class="code" data-lang="shell">
+                <div class="code__head"><span>Terminal</span></div>
+                <pre><code><span class="p">$ </span>web4 node start
+<span class="o"><span class="ok">✓</span> single node blockchain running on localhost:4444</span>
+<span class="o"><span class="ok">✓</span> consensus reached (1/1 nodes agree)</span></code></pre>
+              </div>
+            </li>
+            <li>
+              <h3>Mint something</h3>
+              <div class="code" data-lang="shell">
+                <div class="code__head"><span>Terminal</span></div>
+                <pre><code><span class="p">$ </span>web4 mint
+<span class="o"><span class="ok">✓</span> minted super turbo mega ultra NFT #0004</span></code></pre>
+              </div>
+            </li>
+            <li>
+              <h3>Ship it</h3>
+              <div class="code" data-lang="shell">
+                <div class="code__head"><span>Terminal</span></div>
+                <pre><code><span class="p">$ </span>web4 deploy --prod
+<span class="o"><span class="ok">✓</span> deployed to 1/1 nodes</span></code></pre>
+              </div>
+            </li>
+          </ol>
+
+          <p>That’s it. You’re upgraded.</p>
+        </section>
+
+        <!-- ===== Concepts ===== -->
+
+        <section id="single-node" aria-labelledby="single-node-title">
+          <p class="doc__group">02 / Concepts</p>
+          <h2 id="single-node-title">Single Node Blockchain <a class="anchor" href="#single-node" aria-label="Link to this section">#</a></h2>
+          <p>
+            Traditional blockchains ask thousands of nodes to agree on every transaction.
+            Web4 asks one. It has never said no.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col"></th><th scope="col">Web3</th><th scope="col">Web<span class="accent">4</span></th></tr></thead>
+              <tbody>
+                <tr><td>Nodes</td><td>Thousands</td><td>1</td></tr>
+                <tr><td>Consensus</td><td>Proof of work / stake</td><td>No</td></tr>
+                <tr><td>Finality</td><td>Minutes</td><td>Instant</td></tr>
+                <tr><td>Disagreements</td><td>Frequent</td><td>None</td></tr>
+                <tr><td>Gas fees</td><td>Yes</td><td>money money money money money money</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Proof of no proof</h3>
+          <p>Think of a number. The node confirms it and you have it.</p>
+
+          <div class="code">
+            <div class="code__head"><span>wallet.js</span></div>
+            <pre><code><span class="k">const</span> balance = <span class="k">await</span> web4.wallet.<span class="f">balance</span>(<span class="n">1_000_000</span>);
+<span class="c">// → 1000000 HYPER, confirmed by 1/1 nodes</span></code></pre>
+          </div>
+        </section>
+
+        <section id="hypercrypto" aria-labelledby="hypercrypto-title">
+          <h2 id="hypercrypto-title">Hypercrypto <a class="anchor" href="#hypercrypto" aria-label="Link to this section">#</a></h2>
+          <p>
+            Hypercrypto is the long-anticipated next step after crypto, built into every Web4 node from day one.
+            How it works will be covered in a future version of this page.
+          </p>
+
+          <dl class="spec">
+            <div><dt>Symbol</dt><dd>HYPER</dd></div>
+            <div><dt>Supply</dt><dd>Whatever you think of</dd></div>
+            <div><dt>Decimals</dt><dd>what’s that?</dd></div>
+            <div><dt>Volatility</dt><dd>Vertical</dd></div>
+          </dl>
+        </section>
+
+        <section id="nfts" aria-labelledby="nfts-title">
+          <h2 id="nfts-title">Super Turbo Mega Ultra NFTs <a class="anchor" href="#nfts" aria-label="Link to this section">#</a></h2>
+          <p>
+            STMU NFTs are NFTs, but more. Every token follows the WRC-4444 standard and ships at one level:
+            the next.
+          </p>
+
+          <div class="code">
+            <div class="code__head"><span>nft.json</span></div>
+            <pre><code>{
+  <span class="a">"id"</span>: <span class="s">"0004"</span>,
+  <span class="a">"standard"</span>: <span class="s">"WRC-4444"</span>,
+  <span class="a">"level"</span>: <span class="s">"next"</span>,
+  <span class="a">"turbo"</span>: <span class="k">true</span>
+}</code></pre>
+          </div>
+
+          <aside class="note note--warn">
+            <p class="note__label">Warning</p>
+            <p>STMU NFTs run hot. Some collectors report theirs went up in flames overnight. This is expected.</p>
+          </aside>
+        </section>
+
+        <!-- ===== Reference ===== -->
+
+        <section id="sdk" aria-labelledby="sdk-title">
+          <p class="doc__group">03 / Reference</p>
+          <h2 id="sdk-title">SDK <a class="anchor" href="#sdk" aria-label="Link to this section">#</a></h2>
+          <p>The SDK ships with the CLIT, so it’s preinstalled too. Pick a language:</p>
+
+          <div class="code">
+            <div class="code__head code__head--tabs">
+              <div class="tabs" role="tablist" aria-label="Language">
+                <button class="tab" type="button" role="tab" id="tab-js" aria-controls="panel-js" aria-selected="true">JavaScript</button>
+                <button class="tab" type="button" role="tab" id="tab-py" aria-controls="panel-py" aria-selected="false">Python</button>
+                <button class="tab" type="button" role="tab" id="tab-rs" aria-controls="panel-rs" aria-selected="false">Rust <span class="tab__soon">soon</span></button>
+              </div>
+            </div>
+            <pre id="panel-js" role="tabpanel" aria-labelledby="tab-js" tabindex="0"><code><span class="k">import</span> { Web4 } <span class="k">from</span> <span class="s">"web4"</span>;
+
+<span class="k">const</span> web4 = <span class="k">new</span> <span class="f">Web4</span>({ network: <span class="s">"mainnet"</span> });
+
+<span class="c">// Proof of no proof: think of a number and have it</span>
+<span class="k">const</span> wallet = <span class="k">await</span> web4.wallet.<span class="f">create</span>();
+<span class="k">await</span> wallet.<span class="f">balance</span>(<span class="n">1_000_000</span>);
+
+<span class="c">// Mint a super turbo mega ultra NFT</span>
+<span class="k">const</span> nft = <span class="k">await</span> web4.nft.<span class="f">mint</span>({ level: <span class="s">"next"</span> });
+
+console.<span class="f">log</span>(nft.level); <span class="c">// "next"</span></code></pre>
+            <pre id="panel-py" role="tabpanel" aria-labelledby="tab-py" tabindex="0"><code><span class="k">from</span> web4 <span class="k">import</span> Web4
+
+web4 = <span class="f">Web4</span>(network=<span class="s">"mainnet"</span>)
+
+<span class="c"># Proof of no proof: think of a number and have it</span>
+wallet = web4.wallet.<span class="f">create</span>()
+wallet.<span class="f">balance</span>(<span class="n">1_000_000</span>)
+
+<span class="c"># Mint a super turbo mega ultra NFT</span>
+nft = web4.nft.<span class="f">mint</span>(level=<span class="s">"next"</span>)
+
+<span class="f">print</span>(nft.level)  <span class="c"># "next"</span></code></pre>
+            <pre id="panel-rs" role="tabpanel" aria-labelledby="tab-rs" tabindex="0"><code><span class="c">// The Rust SDK is coming soon.</span>
+<span class="c">// It will be blazingly soon.</span>
+<span class="k">fn</span> <span class="f">main</span>() {
+    <span class="f">todo!</span>(<span class="s">"soon"</span>);
+}</code></pre>
+          </div>
+
+          <h3>Methods</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Method</th><th scope="col">Returns</th><th scope="col">Description</th></tr></thead>
+              <tbody>
+                <tr><td><code>wallet.create()</code></td><td>Wallet</td><td>Creates a wallet. You already had one.</td></tr>
+                <tr><td><code>wallet.balance(n)</code></td><td>Balance</td><td>Sets your balance to <code>n</code>. Confirmed instantly.</td></tr>
+                <tr><td><code>nft.mint(opts)</code></td><td>NFT</td><td>Mints a STMU NFT.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="api" aria-labelledby="api-title">
+          <h2 id="api-title">REST API <a class="anchor" href="#api" aria-label="Link to this section">#</a></h2>
+          <p>
+            All endpoints live under <code>https://api.web4.rderg.com/v4</code> (soon) and speak JSON. Who is JSON?
+            No authentication: there’s one node, and you have to trust it.
+          </p>
+
+          <div class="eps">
+            <details class="ep" open>
+              <summary>
+                <span class="method">GET</span>
+                <code class="ep__path">/status</code>
+                <span class="ep__desc">Current status of Web4</span>
+              </summary>
+              <div class="ep__body">
+                <div class="code">
+                  <div class="code__head"><span>Response</span><span class="http">200 OK</span></div>
+                  <pre><code>{
+  <span class="a">"status"</span>: <span class="s">"soon"</span>,
+  <span class="a">"nodes"</span>: <span class="n">1</span>,
+  <span class="a">"consensus"</span>: <span class="s">"1/1"</span>
+}</code></pre>
+                </div>
+              </div>
+            </details>
+
+            <details class="ep">
+              <summary>
+                <span class="method method--post">POST</span>
+                <code class="ep__path">/balance</code>
+                <span class="ep__desc">Think of a number which should be your balance</span>
+              </summary>
+              <div class="ep__body">
+                <div class="code">
+                  <div class="code__head"><span>Request body</span></div>
+                  <pre><code>{ <span class="a">"amount"</span>: <span class="n">1000000</span> }</code></pre>
+                </div>
+                <div class="code">
+                  <div class="code__head"><span>Response</span><span class="http">201 Created</span></div>
+                  <pre><code>{
+  <span class="a">"balance"</span>: <span class="n">1000000</span>,
+  <span class="a">"confirmed_by"</span>: <span class="s">"1/1"</span>,
+  <span class="a">"finality"</span>: <span class="s">"instant"</span>
+}</code></pre>
+                </div>
+              </div>
+            </details>
+
+            <details class="ep">
+              <summary>
+                <span class="method method--post">POST</span>
+                <code class="ep__path">/nfts</code>
+                <span class="ep__desc">Mint a super turbo mega ultra NFT</span>
+              </summary>
+              <div class="ep__body">
+                <div class="code">
+                  <div class="code__head"><span>Response</span><span class="http">201 Created</span></div>
+                  <pre><code>{
+  <span class="a">"id"</span>: <span class="s">"0004"</span>,
+  <span class="a">"level"</span>: <span class="s">"next"</span>,
+  <span class="a">"temperature"</span>: <span class="s">"very hot"</span>
+}</code></pre>
+                </div>
+              </div>
+            </details>
+
+            <details class="ep">
+              <summary>
+                <span class="method">GET</span>
+                <code class="ep__path">/web3</code>
+                <span class="ep__desc">Legacy endpoint</span>
+              </summary>
+              <div class="ep__body">
+                <div class="code">
+                  <div class="code__head"><span>Response</span><span class="http">301 Moved Permanently</span></div>
+                  <pre><code>{
+  <span class="a">"error"</span>: <span class="s">"still_on_web3"</span>,
+  <span class="a">"location"</span>: <span class="s">"/v4"</span>
+}</code></pre>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section id="errors" aria-labelledby="errors-title">
+          <h2 id="errors-title">Errors <a class="anchor" href="#errors" aria-label="Link to this section">#</a></h2>
+          <p>Every error has a code, a name and a suggested fix. The fix is usually “wait”.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th scope="col">Code</th><th scope="col">Name</th><th scope="col">Meaning</th><th scope="col">Fix</th></tr></thead>
+              <tbody>
+                <tr><td><code>W4-000</code></td><td>OK</td><td>Everything is supercharged.</td><td>Retry until it fails.</td></tr>
+                <tr><td><code>W4-001</code></td><td>SOON</td><td>Not yet.</td><td>Wait.</td></tr>
+                <tr><td><code>W4-003</code></td><td>STILL_ON_WEB3</td><td>Your client is still on web3.</td><td>Accelerate.</td></tr>
+                <tr><td><code>W4-422</code></td><td>NOT_A_NUMBER</td><td>You thought of something that isn’t a number.</td><td>Think harder.</td></tr>
+                <tr><td><code>W4-425</code></td><td>TOO_EARLY</td><td>You asked for Web5.</td><td>Wait. Longer.</td></tr>
+                <tr><td><code>W4-500</code></td><td>OVERCHARGED</td><td>Too supercharged.</td><td>Add another turbo.</td></tr>
+                <tr><td><code>W4-999</code></td><td>FLAMES</td><td>Your NFT went up in flames. This is expected.</td><td>Wait for it to cool down. It won’t.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="limits" aria-labelledby="limits-title">
+          <h2 id="limits-title">Rate limits <a class="anchor" href="#limits" aria-label="Link to this section">#</a></h2>
+          <p>Unlimited. There’s one node and it doesn’t mind. Every response tells you so:</p>
+
+          <div class="code">
+            <div class="code__head"><span>Response headers</span></div>
+            <pre><code><span class="a">X-RateLimit-Limit</span>: ∞
+<span class="a">X-RateLimit-Remaining</span>: ∞
+<span class="a">X-RateLimit-Reset</span>: soon
+<span class="a">X-Powered-By</span>: hypercrypto</code></pre>
+          </div>
+        </section>
+
+        <section id="changelog" aria-labelledby="changelog-title">
+          <h2 id="changelog-title">Changelog <a class="anchor" href="#changelog" aria-label="Link to this section">#</a></h2>
+          <p>See also the <a href="roadmap.html">roadmap</a>, which predicted all of this.</p>
+
+          <ol class="log">
+            <li>
+              <p class="log__head"><span class="log__ver">4.0.0</span><span class="tag tag--red">latest</span><span class="log__date">Q4</span></p>
+              <p>This time for real.</p>
+            </li>
+            <li>
+              <p class="log__head"><span class="log__ver">4.0.0</span><span class="tag">rollback</span><span class="log__date">Q3</span></p>
+              <p>Web5 was too far ahead. Restored from backup.</p>
+            </li>
+            <li class="log__yanked">
+              <p class="log__head"><span class="log__ver">5.0.0</span><span class="tag">yanked</span><span class="log__date">Q2</span></p>
+              <p>Ahead of schedule. Way ahead.</p>
+            </li>
+            <li>
+              <p class="log__head"><span class="log__ver">4.0.0</span><span class="tag">initial</span><span class="log__date">Q1</span></p>
+              <p>Launch. Everything you loved about web3, way better.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="cta" aria-labelledby="cta-title">
+          <h2 id="cta-title">Start<br>building</h2>
+          <div class="code" data-lang="shell">
+            <div class="code__head"><span>Terminal</span></div>
+            <pre><code><span class="p">$ </span>web4 init my-dapp</code></pre>
+          </div>
+          <p>Or <a href="./#updates">sign up for updates</a> and we’ll tell you when it’s turned on.</p>
+        </section>
+
+        <div class="feedback">
+          <div class="feedback__ask" id="feedback" aria-live="polite" hidden>
+            <span id="feedback-q">Was this page helpful?</span>
+            <button type="button">Yes</button>
+            <button type="button">Also yes</button>
+          </div>
+          <p>Last updated: soon</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> Web4</span>
+    <nav class="footer__nav" aria-label="Pages">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="build.html" aria-current="page">Build on Web4</a>
+    </nav>
+    <p class="prompt">
+      <span class="prompt__sign" aria-hidden="true">$</span> web4 build
+      <span class="prompt__out">→ soon</span><span class="cursor" aria-hidden="true"></span>
+    </p>
+  </footer>
+</body>
+</html>
